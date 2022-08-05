@@ -34,3 +34,20 @@ test("Initial setup: if button starts off enabled, and the checkbox is unchecked
   const checkbox = screen.getByRole("checkbox");
   expect(checkbox).not.toBeChecked()
 });
+
+test("When checkbox is checked, the button should be disabled, and vice-versa", () => {
+  render(<App />);
+
+  //Click on the unchecked checkbox, and check if the button is disabled
+  const colorButton = screen.getByRole("button");
+  const checkbox = screen.getByRole("checkbox");
+
+  fireEvent.click(checkbox);
+
+  expect(colorButton).toBeDisabled();
+
+  //Click on the checked chedkbox, and check if the button is enabled again
+  fireEvent.click(checkbox);
+  expect(colorButton).toBeEnabled();
+
+});
