@@ -39,8 +39,8 @@ test("When checkbox is checked, the button should be disabled, and vice-versa", 
   render(<App />);
 
   //Click on the unchecked checkbox, and check if the button is disabled
-  const colorButton = screen.getByRole("button");
-  const checkbox = screen.getByRole("checkbox");
+  const colorButton = screen.getByRole("button", { name: "Change to blue" });
+  const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
 
   fireEvent.click(checkbox);
 
